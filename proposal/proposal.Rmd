@@ -11,9 +11,6 @@ library(broom)
 
 ## 1. Introduction
 
-## Introduction
-
-
 Every several years, the Rolling Stone magazine puts out a top 500 albums list.  The first one came in 2003, then 2012, and then 2020.  They curate these lists by selecting people in the music industry to vote on which albums should be put on the list and where they should be placed.  Each list has different album placements, especially the 2020 list, which has a completely different top ten then the two that came before it.  Part of this has to do with the voters.  "In 2003, 90% of voters were men. Not surprisingly, voters selected predominantly male performers—nearly 82% of the 500 albums selected were by men. For the 2020 ranking Rolling Stone...expanded the voting group from 269 to 336 and doubled the representation of women voters" (https://pudding.cool/2024/03/greatest-music/).  My main question for this project is this: Since more women voted in 2020, are there more female artists in the 2020 list than the 2003 list?  How many more are there and does this shift in gender also  reflect a change in the predominant genres of the lists?
 
 
@@ -31,6 +28,14 @@ glimpse(rolling_stone)
 
 
 ## 3. Data analysis plan
+
+The outcome (response, Y) and predictor (explanatory, X) variables you will use to answer your
+question.
+
+The explanatory variables that I will use are artist_gender and genre.  The response variables will be album, rank_2003, and rank_2020.  My comparison groups are male, female, and female/male gender categories along with genre categories.  As of right now, I am thinking that I will start with some visualizations of the artist gender make-up of each list.  This will help me figure out how many artists on each list are male or female.  I will also make some tables and utilize join to join list data frames.  I am still thinking about which summary statistics will work best for me.  The results I need to support my answer is that there are more female artists and genres like pop and R&B in the 2020 list versus the 2003 list, which has more male rock, folk, and alternative artists.  
+
+
+
 
 
 
