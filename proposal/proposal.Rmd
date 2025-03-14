@@ -19,6 +19,15 @@ Every several years, the Rolling Stone magazine puts out a top 500 albums list. 
 
 ## 2. Data
 
+```{r}
+rolling_stone <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-05-07/rolling_stone.csv')
+```
+
+
+```{r}
+library(tidyverse)
+glimpse(rolling_stone)
+```
 
 
 ## 3. Data analysis plan
