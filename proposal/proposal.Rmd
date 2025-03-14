@@ -1,7 +1,7 @@
 ---
 title: "Project proposal"
 author: "Chiara Iantorno"
-output: github_document
+output: pdf_document
 ---
 
 ```{r load-packages, message = FALSE}
@@ -28,9 +28,6 @@ glimpse(rolling_stone)
 
 
 ## 3. Data analysis plan
-
-The outcome (response, Y) and predictor (explanatory, X) variables you will use to answer your
-question.
 
 The explanatory variables that I will use are artist_gender and genre.  The response variables will be album, rank_2003, and rank_2020.  My comparison groups are male, female, and female/male gender categories along with genre categories.  As of right now, I am thinking that I will start with some visualizations of the artist gender make-up of each list.  This will help me figure out how many artists on each list are male or female.  I will also make some tables and utilize join to join list data frames.  I am still thinking about which summary statistics will work best for me.  The results I need to support my answer is that there are more female artists and genres like pop and R&B in the 2020 list versus the 2003 list, which has more male rock, folk, and alternative artists.  
 
