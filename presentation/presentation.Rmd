@@ -1,11 +1,11 @@
 ---
-title: "Presentation title"
-subtitle: "Presentation subtitle (if any)"
-author: "Your Name"
+title: "Rolling Stone Top 500 Albums Lists"
+subtitle: "How gender diversity in the voting pool affects results"
+author: "Chiara Iantorno"
 institute: "Houghton University"
 date: "`r Sys.Date()`"
 output:
-  xaringan::moon_reader:
+  xaringan::moon_reader: 
     css: xaringan-themer.css
     lib_dir: libs
     nature:
@@ -28,6 +28,7 @@ library(xaringanthemer)
 # For better figure resolution
 knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618, out.width = "80%")
 ```
+
 
 ```{r load-data, include=FALSE}
 # Load your data here
