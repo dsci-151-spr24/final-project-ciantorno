@@ -27,6 +27,9 @@ library(xaringanthemer)
 ```{r setup, include=FALSE}
 # For better figure resolution
 knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618, out.width = "80%")
+
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(error = FALSE)
 ```
 
 
@@ -34,7 +37,7 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 # Load your data here
 ```
 
-```{r}
+```{r, include=FALSE}
 style_xaringan(
   title_slide_background_image = "img/confetti.jpg"
 )
@@ -43,7 +46,13 @@ style_xaringan(
 
 class: center, middle
 
-## A statement of the overall goal / research question
+## The Rolling Stone magazine has put out three top 500 albums lists. Each list has different album placements.  The 2020 list involved more female voters than the 2003 list.  
+
+---
+
+class: center, middle
+
+##How did the addition of more female voters affect the ranking of the 2020 list compared to that of the 2003 list?  Did this shift in the gender of voters also reflect a change in genres between the lists?
 
 ---
 
