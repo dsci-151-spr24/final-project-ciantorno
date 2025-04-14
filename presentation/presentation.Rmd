@@ -34,7 +34,7 @@ knitr::opts_chunk$set(error = FALSE)
 
 
 ```{r load-data, include=FALSE}
-# Load your data here
+rolling_stone <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-05-07/rolling_stone.csv')
 ```
 
 ```{r, include=FALSE}
@@ -58,18 +58,67 @@ class: center, middle
 
 class: inverse, center, middle
 
-# Section title
+# List Visualizations
 
 ---
 
-# Hello World
+```{r, echo=FALSE}
+rolling_stone_2003 <- rolling_stone %>%
+  filter(!is.na(rank_2003))
+```
 
-- Click the `Knit` button to compile your presentation
+```{r, echo=FALSE}
+rolling_stone_2020 <- rolling_stone %>%
+  filter(!is.na(rank_2020))
+```
 
-- Make sure to commit and push all resulting files to your GitHub repo
+```{r, echo=FALSE}
+gender_counts <- rolling_stone_2003 %>%
+  count(artist_gender)
+```
+
+```{r, echo=FALSE}
+ggplot(gender_counts, aes(x = artist_gender, y = n, fill = artist_gender)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Gender Distribution of Artists (2003 List)",
+       x = "Artist Gender",
+       y = "Number of Albums") +
+  theme_minimal()
+
+```
+
+As seen in this visualization, the vast majority of artists whose albums appear on the 2003 list are male.
+
+---
+```{r, echo=FALSE}
+gender_counts2 <- rolling_stone_2020 %>%
+  count(artist_gender)
+```
+
+```{r, echo=FALSE}
+ggplot(gender_counts2, aes(x = artist_gender, y = n, fill = artist_gender)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Gender Distribution of Artists (2020 List)",
+       x = "Artist Gender",
+       y = "Number of Albums") +
+  theme_minimal()
+
+```
+
+Here, while there are still mostly male artists on the list, the amount of female artists with albums on the list over doubled in amount.
+---
+
+class: center, middle
+
+---
+class: inverse, middle, center
+
+# Codes for Gender Make-up of Each List
 
 ---
 
+
+---
 class: inverse, middle, center
 
 # Using xaringan
