@@ -73,12 +73,12 @@ rolling_stone_2020 <- rolling_stone %>%
 ```
 
 ```{r, echo=FALSE}
-gender_counts <- rolling_stone_2003 %>%
+gender_counts_2003 <- rolling_stone_2003 %>%
   count(artist_gender)
 ```
 
 ```{r, echo=FALSE}
-ggplot(gender_counts, aes(x = artist_gender, y = n, fill = artist_gender)) +
+ggplot(gender_counts_2003, aes(x = artist_gender, y = n, fill = artist_gender)) +
   geom_bar(stat = "identity") +
   labs(title = "Gender Distribution of Artists (2003 List)",
        x = "Artist Gender",
@@ -91,12 +91,12 @@ As seen in this visualization, the vast majority of artists whose albums appear 
 
 ---
 ```{r, echo=FALSE}
-gender_counts2 <- rolling_stone_2020 %>%
+gender_counts_2020 <- rolling_stone_2020 %>%
   count(artist_gender)
 ```
 
 ```{r, echo=FALSE}
-ggplot(gender_counts2, aes(x = artist_gender, y = n, fill = artist_gender)) +
+ggplot(gender_counts_2020, aes(x = artist_gender, y = n, fill = artist_gender)) +
   geom_bar(stat = "identity") +
   labs(title = "Gender Distribution of Artists (2020 List)",
        x = "Artist Gender",
@@ -104,6 +104,7 @@ ggplot(gender_counts2, aes(x = artist_gender, y = n, fill = artist_gender)) +
   theme_minimal()
 
 ```
+
 
 Here, while there are still mostly male artists on the list, the amount of female artists with albums on the list over doubled in amount.
 ---
@@ -116,7 +117,40 @@ class: inverse, middle, center
 # Codes for Gender Make-up of Each List
 
 ---
+```{r, echo=FALSE}
+genre_counts_2003 <- rolling_stone_2003 %>%
+  group_by(genre) %>%
+  summarise(album_count = n()) %>%
+  arrange(desc(album_count))
+```
 
+```{r, echo=FALSE}
+genre_counts_2020 <- rolling_stone_2020 %>%
+  mutate(genre = str_to_title(str_trim(genre))) %>%
+  group_by(genre) %>%
+  summarise(album_count = n()) %>%
+  arrange(desc(album_count))
+```
+
+```{r, echo=FALSE}
+genre_counts_2003 <- rolling_stone_2003 %>%
+  mutate(genre = str_to_title(str_trim(genre))) %>%
+  group_by(genre) %>%
+  summarise(album_count = n()) %>%
+  arrange(desc(album_count))
+```
+
+```{r, echo=FALSE}
+ggplot(genre_counts_2003, aes(x = genre, y = album_count, fill = genre)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Genre Distribution of Artists (2003 List)",
+       x = "Genre",
+       y = "Album Count") +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
 
 ---
 class: inverse, middle, center
