@@ -46,7 +46,7 @@ style_xaringan(
 
 class: center, middle
 
-## The Rolling Stone magazine has put out three top 500 albums lists. Each list has different album placements.  The 2020 list involved more female voters than the 2003 list.  
+## The Rolling Stone magazine has put out three top 500 albums lists. Each list has different album placements.  The 2020 list involved more female voters than the 2003 list.  It also involved more voters of color.
 
 ---
 
@@ -87,7 +87,8 @@ ggplot(gender_counts_2003, aes(x = artist_gender, y = n, fill = artist_gender)) 
 
 ```
 
-As seen in this visualization, the vast majority of artists whose albums appear on the 2003 list are male.
+- Most artists are male
+- Not many female artists appear
 
 ---
 ```{r, echo=FALSE}
@@ -105,18 +106,57 @@ ggplot(gender_counts_2020, aes(x = artist_gender, y = n, fill = artist_gender)) 
 
 ```
 
+- Majority of artists are still male
+- Female artists have over doubled
+---
 
-Here, while there are still mostly male artists on the list, the amount of female artists with albums on the list over doubled in amount.
+class: inverse, middle, center
+
+# Tables for Gender Make-up of Each List
+
+---
+
+
+.pull-left[
+```{r, echo = FALSE}
+kable(head(gender_counts_2003), format = "html")
+```
+]
+.pull-right[
+```{r, echo = FALSE}
+kable(head(gender_counts_2020), format = "html")
+```
+]
+
+.pull-left[
+# 2003 list
+]
+
+.pull-right[
+# 2020 list
+]
+
+
+---
+
+class: inverse, middle, center
+
+# How did the genre shift between lists?
+
 ---
 
 class: center, middle
 
----
-class: inverse, middle, center
-
-# Codes for Gender Make-up of Each List
+#As mentioned earlier, the pool of voters for the 2020 list was more racially diverse.  Some music genres, like Hip-hop, Latin and R&B, have roots in Black and Latin culture.  Meanwhile, genres like Rock, New Wave, and Country are more often associated with and made by White artists.
 
 ---
+
+class: center middle
+
+#Could the more racially diverse make-up of voters have shifted the genres on the 2020 list compared to the 2003 one?
+
+---
+
 ```{r, echo=FALSE}
 genre_counts_2003 <- rolling_stone_2003 %>%
   group_by(genre) %>%
@@ -151,6 +191,55 @@ ggplot(genre_counts_2003, aes(x = genre, y = album_count, fill = genre)) +
   theme(legend.position = "none")
 
 ```
+
+- New Wave and other Rock-adjacent genres appear most
+- R&B appears quite frequently
+- Reggae, Funk, Hip-hop, and Latin do not appear very often
+
+---
+
+```{r, echo=FALSE}
+ggplot(genre_counts_2020, aes(x = genre, y = album_count, fill = genre)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Genre Distribution of Artists (2020 List)",
+       x = "Genre",
+       y = "Album Count") +
+  coord_flip() +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+- Soul/Gospel/R&B now appears most often, above New Wave and other Rock genres
+- Afrobeat added
+- Hip-hop has over doubled and Funk, and Latin appear more often
+---
+class: inverse, middle, center
+
+# Tables for Genre Make-up of Each List
+---
+.pull-left[
+```{r, echo = FALSE}
+kable(head(genre_counts_2003), format = "html")
+```
+]
+.pull-right[
+```{r, echo = FALSE}
+kable(head(genre_counts_2020), format = "html")
+```
+]
+
+.pull-left[
+# 2003 list (top 5 minus N/A)
+]
+
+.pull-right[
+# 2020 list (top 5 minus N/A)
+]
+---
+# Top 10 - 2003 vs 2020
+---
+# 2003 Top Ten
 
 ---
 class: inverse, middle, center
