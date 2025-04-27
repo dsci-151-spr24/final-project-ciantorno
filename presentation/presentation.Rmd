@@ -1,6 +1,6 @@
 ---
 title: "Rolling Stone Top 500 Albums Lists"
-subtitle: "How gender diversity in the voting pool affects results"
+subtitle: "How gender and ethnic/racial diversity in the voting pool affects results"
 author: "Chiara Iantorno"
 institute: "Houghton University"
 date: "`r Sys.Date()`"
@@ -58,7 +58,7 @@ class: center, middle
 
 class: inverse, center, middle
 
-# List Visualizations
+# Gender List Visualizations
 
 ---
 
@@ -139,9 +139,37 @@ kable(head(gender_counts_2020), format = "html")
 
 ---
 
+.pull-left[
+```{r, echo=FALSE}
+rolling_stone_2003 %>%
+  count(artist_gender) %>%
+  mutate(proportion = percent(n / sum(n))) %>%
+  kable(format = "html", col.names = c("Artist Gender", "Album Count", "Proportion"))
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+rolling_stone_2020 %>%
+  count(artist_gender) %>%
+  mutate(proportion = percent(n / sum(n))) %>%
+  kable(format = "html", col.names = c("Artist Gender", "Album Count", "Proportion"))
+```
+]
+
+
+.pull-left[
+# 2003 list
+]
+
+.pull-right[
+# 2020 list
+]
+---
+
 class: inverse, middle, center
 
-# How did the genre shift between lists?
+# Genre List Visualizations
 
 ---
 
@@ -230,12 +258,17 @@ kable(head(genre_counts_2020), format = "html")
 ]
 
 .pull-left[
-# 2003 list (top 5 minus N/A)
+# 2003 list top 5 (plus N/A)
 ]
 
 .pull-right[
-# 2020 list (top 5 minus N/A)
+# 2020 list top 5 (plus N/A)
 ]
+
+---
+
+
+
 ---
 # Top 10 - 2003 vs 2020
 ---
