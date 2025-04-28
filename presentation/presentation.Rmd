@@ -39,7 +39,7 @@ rolling_stone <- readr::read_csv('https://raw.githubusercontent.com/rfordatascie
 
 ```{r, include=FALSE}
 style_xaringan(
-  title_slide_background_image = "img/confetti.jpg"
+  title_slide_background_image = "https://images.unsplash.com/photo-1588532218970-c2cab983746a?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 )
 ```
 
@@ -267,152 +267,87 @@ kable(head(genre_counts_2020), format = "html")
 
 ---
 
+.pull-left[
+```{r, echo=FALSE}
+genre_counts_2003 <- genre_counts_2003 %>%
+  mutate(percentage = percent(album_count / sum(album_count)))
+```
 
+```{r, echo=FALSE}
+genre_counts_2003 %>%
+  head(6) %>%
+  kable(format = "html", col.names = c("Genre", "Album Count", "Percentage"))
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+genre_counts_2020 <- genre_counts_2020 %>%
+  mutate(percentage = percent(album_count / sum(album_count)))
+```
+
+```{r, echo=FALSE}
+genre_counts_2020 %>%
+  head(6) %>%
+  kable(format = "html", col.names = c("Genre", "Album Count", "Percentage"))
+```
+]
+
+.pull-left[
+# 2003 list (with percentages)
+]
+
+.pull-right[
+# 2020 list (with percentages)
+]
 
 ---
+
+class: inverse, middle, center
+
 # Top 10 - 2003 vs 2020
 ---
+
 # 2003 Top Ten
+
+```{r, echo=FALSE}
+rolling_stone_2003 %>%
+  arrange(rank_2003) %>%
+  select(rank_2003, album, clean_name, genre) %>%
+  head(10) %>%
+  kable(format = "html", col.names = c("Rank", "Album", "Artist", "Genre"))
+```
+---
+# 2020 Top Ten
+
+```{r, echo=FALSE}
+rolling_stone_2020 %>%
+  arrange(rank_2020) %>%
+  select(rank_2020, album, clean_name, genre) %>%
+  head(10) %>%
+  kable(format = "html", col.names = c("Rank", "Album", "Artist", "Genre"))
+```
 
 ---
 class: inverse, middle, center
 
-# Using xaringan
+# Conclusion
 
 ---
 
-# xaringan
-
-- The presentation is created using the `xaringan` package
-
-- Use `---` to separate slides and `--` for incremental builds
-
---
-
-- Like this
+# Based on the results, we can say that it appears that the gender and racial diversity of voters did affect the change in album placements between the 2003 and 2020 Rolling Stone lists.  There are more female artists and more genres connected to minority racial/ethnic groups in the 2020 list.
 
 ---
 
-# Layouts
-
-You can use plain text
-
-- or bullet points
-
-.pull-left[
-or text in two columns $^*$
-]
-.pull-right[
-- like
-- this
-]
-
-.footnote[
-[*] And add footnotes
-]
+# However, this presentation is flawed/limited since there is no voter data in the `rolling_stone` dataset.  For example, we cannot see how many more female/minority voters voted in the 2020 list versus the 2003 list.  If we had this data, we could back up the results more effectively than by simply saying that there were more of these kinds of voters.
 
 ---
 
-# Code
+# Thank You
 
-```{r boring-regression}
-# a boring regression
-model <- lm(dist ~ speed, data = cars)
-tidy(model)
-glance(model)
+```{r music, echo = FALSE, out.width = "65%", fig.align = "center", fig.cap = "Image credit: Photo by blocks on Unsplash."}
+include_graphics("https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ```
 
----
 
-# Plots
 
-```{r recode-species, echo = FALSE}
-# In this chunk I'm doing a bunch of analysis that I don't want to present 
-# in my slides. But I need the resulting data frame for a plot I want to present.
-iris_modified <- iris %>%
-  mutate(Species = fct_other(Species, keep = "setosa"))
-```
-
-```{r plot-iris, echo = FALSE}
-# Code hidden with echo = FALSE
-# Uses modified iris dataset from previous chunk
-# Play around with height and width until you're happy with the look
-ggplot(data = iris_modified, mapping = aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
-  geom_point() + 
-  theme_minimal() # theme options: https://ggplot2.tidyverse.org/reference/ggtheme.html
-```
-
----
-
-## Plot and text
-
-.pull-left[
-- Some text
-- goes here
-]
-.pull-right[
-```{r warning=FALSE, out.width="100%", fig.width=4, echo=FALSE}
-# see how I changed out.width and fig.width from defaults
-# to make the figure bigger
-ggplot(penguins, aes(x = bill_length_mm, y = species, color = species)) +
-  geom_boxplot() +
-  theme_minimal()
-```
-]
-
----
-
-# Tables
-
-If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
-
-```{r iris-table, echo = FALSE}
-kable(head(iris), format = "html")
-```
-
----
-
-# Images
-
-```{r castle, echo = FALSE, out.width = "60%", fig.align = "center", fig.cap = "Image credit: Photo by Jörg Angeli on Unsplash."}
-include_graphics("https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80")
-```
-
-Or you can also include a full page image. See next slide.
-
----
-
-background-image: url(https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)
-
----
-
-# Math Expressions
-
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. &#36;\alpha+\beta$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
-
-```
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-```
-
-$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
-
-Limitations:
-
-1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
-
-1. There should not be spaces after the opening `$` or before the closing `$`.
-
-1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
-
----
-
-# Feeling adventurous?
-
-- Want to find out more about `xaringan`? See https://slides.yihui.name/xaringan/#1.
-
-- You are welcomed to use the default styling of the slides. In fact, that's what I expect majority of you will do. You will differentiate yourself with the content of your presentation.
-
-- But some of you might want to play around with slide styling. The 
-`xaringanthemer` provides some solutions for this that: https://pkg.garrickadenbuie.com/xaringanthemer.
-
-- And if you want more bells and whistles, there is also `xaringanExtra`: https://pkg.garrickadenbuie.com/xaringanExtra.
