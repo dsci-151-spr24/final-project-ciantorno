@@ -57,4 +57,4 @@ I have multiple research questions for this project. My first one is, since more
 
 ## Methodology
 
-First, I made separate datasets for each list: `rolling_stone_2003` and `rolling_stone_2020`.  I did this so that I could accurately visualize each list, instead of visualizing the lists as a whole, since all lists are part of `rolling_stone`.
+First, I made separate datasets for each list: `rolling_stone_2003` and `rolling_stone_2020`.  I did this so that I could accurately visualize information that has to do with each list, and not all of the lists at once.  Next, I created some visualizations for the gender distribution of artists on each list.
