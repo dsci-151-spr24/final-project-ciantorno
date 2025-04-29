@@ -343,11 +343,20 @@ class: inverse, middle, center
 
 ---
 
+class: inverse, middle, center
+
+# Sources
+
+---
+
+.pull-left[
+https://pudding.cool/2024/03/greatest-music/
+]
+
+---
+
 # Thank You
 
 ```{r music, echo = FALSE, out.width = "65%", fig.align = "center", fig.cap = "Image credit: Photo by blocks on Unsplash."}
 include_graphics("https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ```
-
-
-
