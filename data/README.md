@@ -57,4 +57,9 @@ I have multiple research questions for this project. My first one is, since more
 
 ## Methodology
 
-First, I made separate datasets for each list: `rolling_stone_2003` and `rolling_stone_2020`.  I did this so that I could accurately visualize information that has to do with each list, and not all of the lists at once.  Next, I created some visualizations for the gender distribution of artists on each list.
+First, I made separate datasets for each list: `rolling_stone_2003` and `rolling_stone_2020`.  I did this so that I could accurately visualize information that has to do with each list, and not all of the lists at once.  Next, I created some visualizations for the gender distribution of artists on each list.  For my first visualization, I used a bar graph to show the gender distribution of artists on the 2003 list.  Then I made another bar chart to show the gender distribution of artists on the 2020 list to compare the two results.  In order to show more specific data, I then displayed tables of gender counts for each list.  The first ones are only exact numbers, and the second set of tables include percentages as well.  Then, I did the same process, but for genre distribution.  Finally, I wanted to compare the top ten of each list, to show which genres and artists made the top spots.  Specifically, I wanted to show which genders and genres made the top ten.
+
+## Findings
+
+I found that there were more female artists and genres associated with different ethnic/racial groups in the 2020 Rolling Stones top 500 list than the 2003 list.  Between 2003 and 2020, the amount of female artists over doubled, from 7.6%, to 18.6%.  As for genres, between the 2003 and 2020 list, Hip-Hop/Rap albums, a historically Black genre, over doubled.  R&B, Funk, and Latin albums also increased.  Meanwhile, historically white genres either stayed the same, very slightly increased, or decreased on the 2020 list.  
+
